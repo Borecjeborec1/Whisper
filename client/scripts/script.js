@@ -7,3 +7,19 @@ quisquam nostrum accusantium officia. Odio libero numquam provident facilis esse
 delectus. Tempore dolore molestias consectetur expedita.
 Laborum quia repellendus nobis obcaecati dolores maiores,
 dolorum voluptate. Beatae, velit.`
+
+
+const vSelect = document.querySelector("#voicesSelect");
+
+let voices = []
+
+let id = setInterval(() => {
+  if (voices.length) return clearInterval(id);
+  voices = speechSynthesis.getVoices();
+  for (let voice of voices) {
+    let option = document.createElement("option");
+    option.value = voice.name;
+    option.innerText = voice.name;
+    vSelect.appendChild(option);
+  }
+}, 500)
