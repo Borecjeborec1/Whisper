@@ -8,5 +8,19 @@
   },
   "devDependencies": {
     "@tauri-apps/cli": "^1.0.0-rc.7"
-  }
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Borecjeborec1/Whisper_Text_To_Speech.git"
+  },
+  "keywords": [],
+  "author": "borecjeborec1",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Borecjeborec1/Whisper_Text_To_Speech/issues"
+  },
+  "homepage": "https://github.com/Borecjeborec1/Whisper_Text_To_Speech#readme",
+  "description": ""
 }
