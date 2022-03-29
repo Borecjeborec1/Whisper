@@ -47,6 +47,7 @@ playBtn.addEventListener("click", () => {
 const stopBtn = document.querySelector(".fa-stop");
 stopBtn.addEventListener("click", () => {
   window.speechSynthesis.cancel();
+  playBtn.className = playBtn.className.replace("fa-pause", "fa-play").replace("start", "");
 })
 
 
