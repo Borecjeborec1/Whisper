@@ -91,7 +91,7 @@ body {
   padding: 1rem;
 }
 
-.container .right textarea {
+.container .right #txt {
   font-family: 'Times New Roman', Times, serif;
   width: 99%;
   height: 100%;
@@ -132,5 +132,10 @@ body {
   .container .left h1 {
     font-size: 6rem;
   }
+}
+
+.highlight {
+  background-color: #4cc9f0;
+  color: #fff;
 }
 /*# sourceMappingURL=styles.css.map */

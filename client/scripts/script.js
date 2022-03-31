@@ -1,12 +1,4 @@
 const textarea = document.querySelector("#txt");
-textarea.value = ` Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque tempora praesentium sint aspernatur,
-repudiandae iste minima repellendus velit autem? Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi
-itaque repellendus quod architecto soluta vel exercitationem cumque? Quam tenetur quo ab autem ex eligendi odit,
-magni qui ipsam. Fugiat, quisquam! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur tempore
-quisquam nostrum accusantium officia. Odio libero numquam provident facilis esse voluptatum quidem cum voluptas
-delectus. Tempore dolore molestias consectetur expedita.
-Laborum quia repellendus nobis obcaecati dolores maiores,
-dolorum voluptate. Beatae, velit.`
 
 
 const vSelect = document.querySelector("#voicesSelect");
@@ -27,11 +19,20 @@ let id = setInterval(() => {
 
 const playBtn = document.querySelector(".playBtn");
 playBtn.addEventListener("click", () => {
+
   if (playBtn.className.includes("fa-play")) {
     playBtn.className = playBtn.className.replace("fa-play", "fa-pause");
     if (playBtn.className.includes("start"))
       return window.speechSynthesis.resume();
-    speech.text = textarea.value;
+    let counter = 0
+    let words = textarea.innerText.split(" ");
+    speech.text = textarea.innerText;
+    textarea.innerText = ""
+    words.forEach(el => {
+      counter++
+      if (el)
+        textarea.innerHTML += (` <span data-id=${counter}> ${el} </span> `)
+    })
     speech.volume = 1;
     speech.rate = 1;
     speech.pitch = 1;
@@ -46,6 +47,7 @@ playBtn.addEventListener("click", () => {
 
 const stopBtn = document.querySelector(".fa-stop");
 stopBtn.addEventListener("click", () => {
+  wordIndex = 0
   window.speechSynthesis.cancel();
   playBtn.className = playBtn.className.replace("fa-pause", "fa-play").replace("start", "");
 })
@@ -60,3 +62,16 @@ downloadBtn.addEventListener("click", () => {
   link.download = `${filename}.mp3`;
   link.click();
 })
+let wordIndex = 0
+speech.onboundary = function (event) {
+  if (event.name !== "word") return
+  wordIndex++
+  let spanLast = document.querySelector(`[data-id="${wordIndex - 1}"]`)
+  if (spanLast)
+    spanLast.classList.remove("highlight")
+
+  let span = document.querySelector(`[data-id="${wordIndex}"]`)
+  if (span)
+    span.classList.add("highlight")
+  console.log(spanLast, span)
+};
