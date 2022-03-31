@@ -19,20 +19,17 @@ let id = setInterval(() => {
 
 const playBtn = document.querySelector(".playBtn");
 playBtn.addEventListener("click", () => {
-
   if (playBtn.className.includes("fa-play")) {
     playBtn.className = playBtn.className.replace("fa-play", "fa-pause");
     if (playBtn.className.includes("start"))
       return window.speechSynthesis.resume();
-    let counter = 0
     let words = textarea.innerText.split(" ");
     speech.text = textarea.innerText;
     textarea.innerText = ""
-    words.forEach(el => {
-      counter++
-      if (el)
-        textarea.innerHTML += (` <span data-id=${counter}> ${el} </span> `)
-    })
+    for (let i = 0; i < words.length; i++) {
+      if (words[i])
+        textarea.innerHTML += (` <span data-id=${i}> ${words[i]} </span> `)
+    }
     speech.volume = 1;
     speech.rate = 1;
     speech.pitch = 1;
