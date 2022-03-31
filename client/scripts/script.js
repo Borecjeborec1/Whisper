@@ -59,10 +59,11 @@ downloadBtn.addEventListener("click", () => {
   link.download = `${filename}.mp3`;
   link.click();
 })
+
 let wordIndex = 0
+
 speech.onboundary = function (event) {
   if (event.name !== "word") return
-  wordIndex++
   let spanLast = document.querySelector(`[data-id="${wordIndex - 1}"]`)
   if (spanLast)
     spanLast.classList.remove("highlight")
@@ -70,4 +71,5 @@ speech.onboundary = function (event) {
   let span = document.querySelector(`[data-id="${wordIndex}"]`)
   if (span)
     span.classList.add("highlight")
+  wordIndex++
 };
