@@ -73,5 +73,4 @@ speech.onboundary = function (event) {
   let span = document.querySelector(`[data-id="${wordIndex}"]`)
   if (span)
     span.classList.add("highlight")
-  console.log(spanLast, span)
 };
