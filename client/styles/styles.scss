@@ -12,6 +12,7 @@ body {
   height: 100vh;
   width: 100vw;
   background: linear-gradient(to right, #560bad 40%, #3f37c9 70%);
+  overflow: hidden;
 }
 
 .container {
@@ -131,6 +132,7 @@ body {
 }
 
 .highlight {
-  background-color: #4cc9f0;
-  color: #fff;
+  background-color: #03204066;
+  padding: .2rem .4rem;
+  border-radius: .5rem;
 }

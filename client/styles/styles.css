@@ -11,6 +11,7 @@ body {
   width: 100vw;
   background: -webkit-gradient(linear, left top, right top, color-stop(40%, #560bad), color-stop(70%, #3f37c9));
   background: linear-gradient(to right, #560bad 40%, #3f37c9 70%);
+  overflow: hidden;
 }
 
 .container {
@@ -135,7 +136,8 @@ body {
 }
 
 .highlight {
-  background-color: #4cc9f0;
-  color: #fff;
+  background-color: #03204066;
+  padding: .2rem .4rem;
+  border-radius: .5rem;
 }
 /*# sourceMappingURL=styles.css.map */
