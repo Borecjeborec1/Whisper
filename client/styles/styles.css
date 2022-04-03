@@ -93,6 +93,7 @@ body {
 }
 
 .container .right #txt {
+  overflow-y: scroll;
   font-family: 'Times New Roman', Times, serif;
   width: 99%;
   height: 100%;
